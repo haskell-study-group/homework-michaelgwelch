@@ -3,7 +3,7 @@ Chapter 7 Excercises
 
 1. Show how the list comprehension `[f x | x <- xs, p x]` can be re-expressed using the higher-order functions `map` and `filter`.
 ~~~ {.haskell}
-f1 f p xs = map f (filter p xs)
+    f1 f p xs = map f (filter p xs)
 ~~~ 
 2. Without looking at the definitions from the standard prelude, define the following higher-order library functions on lists.
 
