@@ -16,6 +16,7 @@ Chapter 7 Excercises
     all p = foldr (flip (&&) . p) True 
     ~~~
     b. Decide if any element of a list satisfies a predicate:
+    
     ~~~ {.haskell}
     any :: (a -> Bool) -> [a] -> Bool
     any p = foldr (flip (||) . p) False
