@@ -22,9 +22,9 @@ Chapter 7 Excercises
     ~~~
 c. Seect elements from a list while they satisfy a predicate:
 
-~~~ {.haskell}
-takeWhile :: (a -> Bool) -> [a] -> [a]
-takeWhile = undefined
-~~~
+    ~~~ {.haskell}
+    takeWhile :: (a -> Bool) -> [a] -> [a]
+    takeWhile = undefined
+    ~~~
 
 
