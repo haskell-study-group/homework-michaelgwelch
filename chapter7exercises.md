@@ -10,16 +10,16 @@ Chapter 7 Excercises
 
     a. Decide if all elements of a list satisfy a predicate:
     
-        ~~~ {.haskell}
-        all' p = foldr (\h b -> b && p h) True
-        all :: (a -> Bool) -> [a] -> Bool
-        all p = foldr (flip (&&) . p) True 
-        ~~~
+    ~~~ {.haskell}
+    all' p = foldr (\h b -> b && p h) True
+    all :: (a -> Bool) -> [a] -> Bool
+    all p = foldr (flip (&&) . p) True 
+    ~~~
     b. Decide if any element of a list satisfies a predicate:
-        ~~~ {.haskell}
-        any :: (a -> Bool) -> [a] -> Bool
-        any p = foldr (flip (||) . p) False
-        ~~~
+    ~~~ {.haskell}
+    any :: (a -> Bool) -> [a] -> Bool
+    any p = foldr (flip (||) . p) False
+    ~~~
 c. Seect elements from a list while they satisfy a predicate:
 
 ~~~ {.haskell}
