@@ -11,7 +11,7 @@ Now take the following template:
 ```csharp
 class MyClass<TIn, TOut>
 {
-    public TOut F(TIn in)
+    public TOut F(Func<TIn,TOut> g, TIn x)
     {
 
     }
