@@ -1,7 +1,7 @@
 Homework
 =====
 
-Given the type signature for `f`: `f :: (a->b) -> a -> b`
+Given the type signature for `f :: (a->b) -> a -> b`
 
 Implement as many functions with that signature as you can. How many of them are functionally equivalent. How many of them different (without just erroring out).
 
