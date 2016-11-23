@@ -1,6 +1,10 @@
 Chapter 7 Excercises
 ===================
 
+~~~ {.haskell}
+import Data.Char
+~~~
+
 1. Show how the list comprehension `[f x | x <- xs, p x]` can be re-expressed using the higher-order functions `map` and `filter`.
 
     ~~~ {.haskell}
@@ -102,4 +106,36 @@ Chapter 7 Excercises
 
     iterate :: (a -> a) -> a -> [a]
     iterate f = unfold (const False) id f
+    ~~~
+
+7. Modify the binary string transmitter example to detect simple transmission errors using the concept of parity bits. That is, each eight-bit binary number produced during encoding is extended with a parity bit, set to one if the number contains an odd number of ones, and to zero otherwise. In turn, each resulting nine-bit number consumed during decoding is checked to ensure that its parity bit is correct, with the parity bit being discarded if this is the case, and a parity error being reported otherwise. 
+
+    Hint: the library function `error :: String -> a` displays the given string as an error message and terminates the program; the polymorphic result type ensures that `error` can be used in any context.
+
+    ~~~ {.haskell}
+    channel = id
+
+    bin2int :: [Bit] -> Int
+    bin2int = foldr (\h s -> h*2 + s) 0
+
+    make8 :: [Bit] -> [Bit]
+    make8 bits = take 8 (bits ++ repeat 0)
+
+    encode :: String -> [Bit]
+    encode = concat . map (make8 . int2bin . ord)
+
+    decode :: [Bit] -> String
+    decode = map (chr . bin2int) . chop8
+
+    add_parity :: [Bit] -> [Bit]
+    add_parity bits | odd (sum bits) = 1 : bits
+                    | otherwise      = 0 : bits
+    
+    check_parity :: [Bit] -> [Bit]
+    check_parity bits | even (sum bits) = tail bits
+                      | otherwise       = error "parity error"
+
+    transmit :: String -> String
+    transmit = decode . check_parity . channel . add_parity . encode
+
     ~~~
