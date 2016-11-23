@@ -39,3 +39,6 @@ Chapter 7 Excercises
     ~~~
 
 3. Redefine the functions `map f` and `filter p` using foldr.
+
+> dec2int [2,3,4,5]
+> 2345
