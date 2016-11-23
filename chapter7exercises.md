@@ -116,7 +116,7 @@ import Data.Char
     channel = id
 
     bin2int :: [Bit] -> Int
-    bin2int = foldr (\h s -> h*2 + s) 0
+    bin2int = foldr (\h s -> h + 2*s) 0
 
     make8 :: [Bit] -> [Bit]
     make8 bits = take 8 (bits ++ repeat 0)
@@ -135,7 +135,18 @@ import Data.Char
     check_parity bits | even (sum bits) = tail bits
                       | otherwise       = error "parity error"
 
+    trans = decode . channel . encode
+
     transmit :: String -> String
     transmit = decode . check_parity . channel . add_parity . encode
 
+    ~~~
+
+8. Test your new string transmitter program from the previous exercise using a faulty communication channel that forgets the first bit, which can be modelled using the tail function on lists of bits. 
+
+    ~~~ {.haskell}
+    channel' = tail
+
+    transmit' :: String -> String
+    transmit' = decode . check_parity . channel' . add_parity . encode
     ~~~
