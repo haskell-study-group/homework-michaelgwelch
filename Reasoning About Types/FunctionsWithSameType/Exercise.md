@@ -18,7 +18,7 @@ class MyClass<TIn, TOut>
 }
 ```
 
-Leaving the signature of F as is, but doing anything else you want to the implementation of MyClass and F, how many different functions
+Leaving the signature of F as is, and the type parameters on MyClass as they are, but doing anything else you want to the implementation of MyClass and F, how many different functions
 can you write. How many of them do completely different things (besides error out). How many different functions are possible?
 
 Which type signature is easier to reason about (Haskell or C#)
