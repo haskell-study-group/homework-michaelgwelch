@@ -172,4 +172,6 @@ import Data.Char
 
     luhn :: [Int] -> Bool
     luhn digits = sum (altMap id luhnDouble (reverse digits)) `mod` 10 == 0
+
+    luhn' = (0 ==) . (`mod` 10) . sum . altMap id luhnDouble . reverse
     ~~~
