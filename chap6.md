@@ -178,37 +178,39 @@ Chapter 6 Exercises
 
     a. calculate the `sum` of a list of numbers; 
 
-    1. Define the type:
+    The five steps are:
 
-    ~~~
-    sum :: [Int] -> Int
-    ~~~
+        1. Define the type:
 
-    2. Enumerate the cases:
+        ~~~
+        sum :: [Int] -> Int
+        ~~~
 
-    ~~~
-    sum [] = 
-    sum (x:xs) = 
-    ~~~
+        2. Enumerate the cases:
 
-    3. Define the simple cases
+        ~~~
+        sum [] = 
+        sum (x:xs) = 
+        ~~~
 
-    ~~~
-    sum [] = 0
-    ~~~
+        3. Define the simple cases
 
-    4. Define the other cases
+        ~~~
+        sum [] = 0
+        ~~~
 
-    ~~~
-    sum (x:xs) = x + sum xs
-    ~~~
+        4. Define the other cases
 
-    5. Generalize and simplify
+        ~~~
+        sum (x:xs) = x + sum xs
+        ~~~
 
-    ~~~ {.haskell}
-    sum :: Num a => [a] -> a
-    sum = foldr (+) 0
-    ~~~~
+        5. Generalize and simplify
+
+        ~~~ {.haskell}
+        sum :: Num a => [a] -> a
+        sum = foldr (+) 0
+        ~~~~
 
     And done.
 
