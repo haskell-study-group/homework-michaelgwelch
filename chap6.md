@@ -138,6 +138,82 @@ Chapter 6 Exercises
                   | otherwise = Main.elem y xs
     ~~~
     
-    Note: most of these functions are defined in the prelude using other library functions rather than using explicit recursion,
+    Note: most of these functions are defined in the prelude using other library functions rather than using explicit recursion, and are generic functions rather than being specific to the type of lists.
 
+7. Define a recursive function `merge :: Ord a => [a] -> [a] -> [a]` that merges two sorted lists to give a single sorted list. For example: 
 
+    ~~~
+    > merge [2,5,6] [1,3,4]
+    [1,2,3,4,5,6] 
+    ~~~
+
+    Note: your definition should not use other functions on sorted lists such as `insert` or `isort`, but should be defined using explicit recursion.
+
+    ~~~ {.haskell}
+    merge :: Ord a => [a] -> [a] -> [a]
+    merge xs [] = xs
+    merge [] ys = ys
+    merge (x:xs) (y:ys) | x == y = x : y : merge xs ys
+                        | x < y = x : merge xs (y:ys)
+                        | otherwise = y : merge (x:xs) ys
+    ~~~
+
+8. Using `merge`, define a function `msort :: Ord a => [a] -> [a]` that implements merge sort, in which the empty list and singleton lists are already sorted, and any other list is sorted by merging together the two lists that result from sorting the two halves of the list separately. 
+
+    Hint: first define a function `halve :: [a] -> ([a],[a])` that splits a list into two halves whose lengths differ by at most one.
+
+    ~~~ {.haskell}
+    halve :: [a] -> ([a],[a])
+    halve xs = (take n xs, drop n xs)
+               where n = length xs `div` 2
+    
+    msort :: Ord a => [a] -> [a]
+    msort [] = []
+    msort (x:[]) = [x]
+    msort xs = let (ys,zs) = halve xs
+               in merge (msort ys) (msort zs)
+    ~~~
+
+9. Using the five-step process, construct the library functions that: 
+
+    a. calculate the `sum` of a list of numbers; 
+
+    1. Define the type:
+
+    ~~~
+    sum :: [Int] -> Int
+    ~~~
+
+    2. Enumerate the cases:
+
+    ~~~
+    sum [] = 
+    sum (x:xs) = 
+    ~~~
+
+    3. Define the simple cases
+
+    ~~~
+    sum [] = 0
+    ~~~
+
+    4. Define the other cases
+
+    ~~~
+    sum (x:xs) = x + sum xs
+    ~~~
+
+    5. Generalize and simplify
+
+    ~~~ {.haskell}
+    sum :: Num a => [a] -> a
+    sum = foldr (+) 0
+    ~~~~
+
+    And done.
+
+    b. take a given number of elements from the start of a list; 
+
+    c. select the last element of a non-empty list.
+
+  
