@@ -180,39 +180,37 @@ Chapter 6 Exercises
 
     The five steps are:
 
-        1. Define the type:
+    Step 1. Define the type:
 
-        ~~~
-        sum :: [Int] -> Int
-        ~~~
+    ~~~
+    sum :: [Int] -> Int
+    ~~~
 
-        2. Enumerate the cases:
+    Step 2. Enumerate the cases:
 
-        ~~~
-        sum [] = 
-        sum (x:xs) = 
-        ~~~
+    ~~~
+    sum [] = 
+    sum (x:xs) = 
+    ~~~
 
-        3. Define the simple cases
+    Step 3. Define the simple cases
 
-        ~~~
-        sum [] = 0
-        ~~~
+    ~~~
+    sum [] = 0
+    ~~~
 
-        4. Define the other cases
+    Step 4. Define the other cases
 
-        ~~~
-        sum (x:xs) = x + sum xs
-        ~~~
+    ~~~
+    sum (x:xs) = x + sum xs
+    ~~~
 
-        5. Generalize and simplify
+    Step 5. Generalize and simplify
 
-        ~~~ {.haskell}
-        sum :: Num a => [a] -> a
-        sum = foldr (+) 0
-        ~~~~
-
-    And done.
+    ~~~ {.haskell}
+    sum :: Num a => [a] -> a
+    sum = foldr (+) 0
+    ~~~~
 
     b. take a given number of elements from the start of a list; 
 
