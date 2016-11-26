@@ -139,3 +139,20 @@ Chapter 8 Exercises
       _ == _ = False
     ~~~
 
+
+
+Addendum
+=======
+
+Working ahead, I want to make `Tree'` Foldable and rewrite `balanced` and `leaves`
+
+~~~ {.haskell}
+instance Foldable Tree' where
+  -- foldr :: (a -> b -> b) -> b -> t a -> b
+  foldr acc s (Leaf' x) = acc x s 
+  foldr acc s (Node' l r) = foldr acc (foldr acc s l) r
+  -- foldMap :: Monoid m => (a -> m) -> t a -> m
+  foldMap f (Leaf' x) = f x
+  foldMap f (Node' l r) = (foldMap f l) `mappend` (foldMap f r)
+
+

@@ -48,3 +48,9 @@ let x = 5
 ```
 
 However, these code blocks wouldn't be supported by Markdown. In the `.lhs` file we use a type of code block supported by Markdown. The `markdown-unlit` program then does the job of converting the approximate literate haskell into source code that ghci can actually process. 
+
+Literate Haskell
+---------------
+You can learn more about [Literate Haskell](https://wiki.haskell.org/Literate_programming) at the link. 
+
+You can learn more about `markdown-unlit` [here](https://github.com/sol/markdown-unlit)
