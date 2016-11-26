@@ -5,9 +5,9 @@ Given the type signature for `f :: (a->b) -> a -> b`
 
 Implement as many functions with that signature as you can. How many of them are functionally equivalent. 
 
-Describe what each implementaiton does.
+Describe what each implementation does.
 
-How many of them different (without just erroring out).
+How many of them are different (without just erroring out).
 
 Now take the following template:
 

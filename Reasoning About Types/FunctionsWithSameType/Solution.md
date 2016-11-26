@@ -35,6 +35,8 @@ But there are an infinite different number of solutions.
 
 4. Define a whole host of fields of type Func<?,?> and use reflection to find one that matches TIn and TOut. Use that one and call it with `x`.
 
+5. Run an entire program (game, database program, etc.)
+
 
 
 Question: Why is it not possible to do IO in `f` like you can in `F`. Why can't you find another function of type `a -> b` and use that like in C#?
