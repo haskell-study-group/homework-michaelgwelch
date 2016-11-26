@@ -1,2 +1,5 @@
 #!/bin/bash
+
+# This will invoke ghci with the markdown-unlit
+# preprocessor. See README on how to install.
 ghci -pgmL markdown-unlit $1
