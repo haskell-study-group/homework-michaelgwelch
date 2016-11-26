@@ -279,6 +279,7 @@ Chapter 6 Exercises
     Generalize:
 
     ~~~ {.haskell}
+    last :: [a] -> a
     last (x:[]) = x 
-    last (_:xs) = last xs
+    last (_:xs) = Main.last xs
     ~~~
