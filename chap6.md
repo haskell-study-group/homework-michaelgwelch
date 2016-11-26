@@ -164,7 +164,7 @@ Chapter 6 Exercises
 
     ~~~ {.haskell}
     halve :: [a] -> ([a],[a])
-    halve xs = (take n xs, drop n xs)
+    halve xs = (Prelude.take n xs, drop n xs)
                where n = length xs `div` 2
     
     msort :: Ord a => [a] -> [a]
@@ -214,6 +214,71 @@ Chapter 6 Exercises
 
     b. take a given number of elements from the start of a list; 
 
+    Type:
+
+    ~~~
+    take :: Int -> [a] -> [a]
+    ~~~
+
+    Cases:
+
+    ~~~
+    take 0 xs =
+    take n 
+    ~~~
+
+    Easy case:
+
+    ~~~
+    take 0 _ = []
+    ~~~
+
+    Other cases:
+
+    ~~~
+    take n (x:xs) = x : take (n-1) xs
+    ~~~
+
+    Generalize
+
+    ~~~ {.haskell}
+    take :: Integral n => n -> [a] -> [a]
+    take 0 _ = []
+    take n (x:xs) = x : Main.take (n-1) xs
+    ~~~
+
     c. select the last element of a non-empty list.
 
-  
+    Type:
+
+    ~~~
+    last [a] -> a
+    ~~~
+
+    Cases:
+
+    ~~~
+    last [] = 
+    last (x:[]) =
+    last (x:xs) =
+    ~~~
+
+    Easy case:
+
+    ~~~
+    last (x:[]) = x
+    ~~~
+
+    Other cases:
+
+    ~~~
+    last [] = error "Empty list"
+    last (_:xs) = last xs
+    ~~~
+
+    Generalize:
+
+    ~~~ {.haskell}
+    last (x:[]) = x 
+    last (_:xs) = last xs
+    ~~~
