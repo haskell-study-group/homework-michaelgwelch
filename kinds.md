@@ -5,6 +5,7 @@ We are very familiar with types. What most developers are not familiar with are 
 In Haskell there are two kinds:
 
 * `*` means just a regular type. Like `Int` or `[Int]` or 
+* `* -> *` means a kind that takes one type and produces another type, like `[]` or `Maybe`
 
 
 
