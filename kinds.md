@@ -11,6 +11,15 @@ In Haskell there are two kinds:
 Examples
 -------
 ```shell
+-- Simple Kinds
+Prelude> :kind [Int]
+[Int] :: *
+Prelude> :kind (Maybe Int)
+(Maybe Int) :: *
+Prelude> :kind Int
+Int :: *
+
+-- Types vs Kinds
 Prelude> :type []
 [] :: [t]
 Prelude> :kind []
