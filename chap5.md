@@ -1,6 +1,7 @@
 Chapter 5 Exercise
 ==============
 
+
 1. Using a list comprehension, give an expression that calculates the sum 1<sup>2</sup> + 2<sup>2</sup> + ... 100<sup>2</sup> of the first one hundred integer squares.
 
     ~~~ {.haskell}
@@ -54,3 +55,22 @@ Chapter 5 Exercise
    pyths :: Int -> [(Int,Int,Int)]
    pyths n = [ (x,y,z) | x <- [1..n], y <- [1..n], z <- [1..n], x^2 + y^2 == z^2]
    ~~~
+
+6. A positive integer is *perfect* if it equals the sum of all of its factors, excluding the number itself. Using a list comprehension and the function `factors`, define a function `perfects :: Int -> [Int]` that returns the list of all perfect numbers up to a given limit. For example:
+
+    ~~~
+    > perfects 500 
+    [6,28,496]
+    ~~~
+
+    ~~~ {.haskell}
+    factors :: Int -> [Int]
+    factors n = [ x | x <- [1..n], n `mod` x == 0]
+
+    perfect :: Int -> Bool
+    --perfect n = sum (init (factors n)) == n
+    perfect = (==) =<< sum . init . factors
+
+    --perfects :: Int -> [Int]
+    --perfects n = [ x | fs <- init $ factors n, ]
+    ~~~
