@@ -188,7 +188,7 @@ valueOf Nickel  =  5
 valueOf Penny   =  1
 ~~~
 
-Use `unfold` to right `makeChange :: Int -> [Coin]` that implements the
+Use `unfold` to write `makeChange :: Int -> [Coin]` that implements the
 algorithm for making change that results in the least number of coins. The
 input is the number of cents to make change for. The output is a list of coins.
 The only coins to use are quarters, dimes, nickels and pennies.
