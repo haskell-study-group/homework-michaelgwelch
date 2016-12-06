@@ -36,4 +36,11 @@ Prelude> :kind Just
     A data constructor of that name is in scope; did you mean DataKinds?
 Prelude> :kind Maybe
 Maybe :: * -> *
+
+
+-- Curried Kinds (tuples)
+Prelude> :kind (,)
+(,) :: * -> * -> *
+Prelude> :kind (,,)
+(,,) :: * -> * -> * -> *
 ```
