@@ -205,7 +205,7 @@ Answer:
 
 ~~~ {.haskell}
 makeChange :: Int -> [Coin]
-makeChange = unfold (==0) nextCoin remainingCents
+makeChange n | n >= 0 = unfold (==0) nextCoin remainingCents n
                where nextCoin x | x >= 25 = Quarter
                                 | x >= 10 = Dime
                                 | x >=  5 = Nickel
