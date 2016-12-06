@@ -175,3 +175,40 @@ import Data.Char
 
     luhn' = (0 ==) . (`mod` 10) . sum . altMap id luhnDouble . reverse
     ~~~
+
+
+Extra Credit: Given the following definition for `Coin`:
+
+~~~ {.haskell}
+data Coin = Quarter | Dime | Nickel | Penny deriving Show
+valueOf :: Coin -> Int
+valueOf Quarter = 25
+valueOf Dime    = 10
+valueOf Nickel  =  5
+valueOf Penny   =  1
+~~~
+
+Use `unfold` to right `makeChange :: Int -> [Coin]` that implements the
+algorithm for making change that results in the least number of coins. The
+input is the number of cents to make change for. The output is a list of coins.
+The only coins to use are quarters, dimes, nickels and pennies.
+
+For example: 
+
+~~~
+-- Change for 73 cents should be 2 quarters, 2 dimes and 3 pennies
+> makeChange 73
+[Quarter, Quarter, Dime, Dime, Penny, Penny, Penny]
+~~~
+
+Answer:
+
+~~~ {.haskell}
+makeChange :: Int -> [Coin]
+makeChange = unfold (==0) nextCoin remainingCents
+               where nextCoin x | x >= 25 = Quarter
+                                | x >= 10 = Dime
+                                | x >=  5 = Nickel
+                                | otherwise = Penny
+                     remainingCents x = x - (valueOf (nextCoin x))
+~~~
